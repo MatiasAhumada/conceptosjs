@@ -41,5 +41,3 @@ document.write(`<p>AMD Ryzen 9 $${convertirDolaresAPesos(550)} sin impuestos.</p
 
 
 
-
-
