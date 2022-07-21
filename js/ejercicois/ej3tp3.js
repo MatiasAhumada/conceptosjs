@@ -25,18 +25,21 @@ document.write(`<table>
 <td>Frecuencia</td>
 </tr>`);
 for (let resultado = 2; resultado <= 12; resultado++) {
+  let contador=0;
   for (let posicion = 0; posicion < sumas.length; posicion++) {
     if (resultado === sumas[posicion]) {
       //sumar las apariciones
+      contador++
     }
   }
   document.write(`
 <tr>
 <td>${resultado}</td>
-<td>x</td>
+<td>${contador}</td>
 </tr>`);
 }
 
 document.write(`
 </tbody>
 </table>`);
+
