@@ -1,30 +1,37 @@
 let cuenta = {
   titular: "alex",
   saldo: 0,
-  ingresar: (objeto, deposito) => {
-    objeto.saldo += deposito; //objeto.saldo = deposito + objeto.saldo
-    console.log(objeto.saldo);
+  transferir() {
+    console.log("estamos en el metodo transferir");
+    console.log(this);
   },
-  extraer: (objeto, retiro) => {
-    if (objeto.saldo >= retiro) {
-      objeto.saldo -= retiro;
+  ingresar(deposito) {
+    console.log(this);
+    this.saldo += deposito; //objeto.saldo = deposito + objeto.saldo
+    console.log("se ingreso$" + this.saldo);
+  },
+  extraer(retiro) {
+    if (this.saldo >= retiro) {
+      this.saldo -= retiro;
       document.write(`<p>se retiro ${retiro}</p>`);
     } else {
       document.write(`<p>saldo insuficiente</p>`);
     }
   },
-  informar: (objeto) => {
-    console.log(objeto);
+  informar (){
+    
     document.write(
-      `<p>La cuenta de ${objeto.titular}, posee un saldo de ${objeto.saldo}</p>`
+      `<p>La cuenta de ${this.titular}, posee un saldo de ${this.saldo}</p>`
     );
   },
 };
 cuenta.informar(cuenta);
+console.log(this)
 
 let deposito = parseFloat(prompt("ingrese el monto deseado"));
-cuenta.ingresar(cuenta, deposito);
+cuenta.ingresar(deposito);
 
 let retiro = parseFloat(prompt("ingrese el monto a extraer"));
-cuenta.extraer(cuenta, retiro);
+cuenta.extraer(retiro);
+
 cuenta.informar(cuenta);
